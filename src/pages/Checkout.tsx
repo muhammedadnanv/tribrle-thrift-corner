@@ -75,17 +75,19 @@ const Checkout = () => {
               onChange={(e) => setAddress(e.target.value)}
               className="mb-4"
             />
-            <h2 className="text-xl font-semibold mb-4">UPI Payment</h2>
-            <Input
-              type="text"
-              placeholder="Enter UPI ID"
-              value={upiId}
-              onChange={(e) => setUpiId(e.target.value)}
-              className="mb-4"
-            />
-            <Button onClick={handleCheckout} className="w-full bg-pink-500 text-white hover:bg-pink-600 transition-colors">
-              Pay with UPI
-            </Button>
+            <div className="bg-pink-50 p-4 rounded-lg mb-4">
+              <h2 className="text-xl font-semibold mb-4">UPI Payment</h2>
+              <Input
+                type="text"
+                placeholder="Enter UPI ID"
+                value={upiId}
+                onChange={(e) => setUpiId(e.target.value)}
+                className="mb-4"
+              />
+              <Button onClick={handleCheckout} className="w-full bg-pink-500 text-white hover:bg-pink-600 transition-colors">
+                Pay with UPI
+              </Button>
+            </div>
           </div>
         </div>
       </main>
