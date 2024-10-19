@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { ShoppingCart, Heart, Search } from 'lucide-react';
 import { Button } from './ui/button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import { useCart } from '@/contexts/CartContext';
+import { Badge } from './ui/badge';
 
 const Header = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const navigate = useNavigate();
+  const { cartItemsCount } = useCart();
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -16,23 +19,30 @@ const Header = () => {
     <header className="bg-pink-100 text-gray-800 shadow-md">
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-3xl font-serif font-bold text-pink-600">Kocizz</h1>
+          <Link to="/" className="text-3xl font-serif font-bold text-pink-600">Kocizz</Link>
           <div className="flex items-center space-x-4">
             <Button variant="ghost" size="icon" className="text-gray-800 hover:text-pink-600">
               <Heart className="h-5 w-5" />
             </Button>
-            <Button variant="ghost" size="icon" className="text-gray-800 hover:text-pink-600">
-              <ShoppingCart className="h-5 w-5" />
-            </Button>
+            <Link to="/cart">
+              <Button variant="ghost" size="icon" className="text-gray-800 hover:text-pink-600 relative">
+                <ShoppingCart className="h-5 w-5" />
+                {cartItemsCount > 0 && (
+                  <Badge variant="destructive" className="absolute -top-2 -right-2 px-2 py-1 text-xs">
+                    {cartItemsCount}
+                  </Badge>
+                )}
+              </Button>
+            </Link>
           </div>
         </div>
         <div className="flex justify-between items-center">
           <nav>
             <ul className="flex space-x-6">
-              <li><a href="#" className="text-gray-800 hover:text-pink-600 transition-colors">Hanbok</a></li>
-              <li><a href="#" className="text-gray-800 hover:text-pink-600 transition-colors">K-Beauty</a></li>
-              <li><a href="#" className="text-gray-800 hover:text-pink-600 transition-colors">K-Pop Merch</a></li>
-              <li><a href="#" className="text-gray-800 hover:text-pink-600 transition-colors">Home Decor</a></li>
+              <li><Link to="/category/hanbok" className="text-gray-800 hover:text-pink-600 transition-colors">Hanbok</Link></li>
+              <li><Link to="/category/k-beauty" className="text-gray-800 hover:text-pink-600 transition-colors">K-Beauty</Link></li>
+              <li><Link to="/category/k-pop-merch" className="text-gray-800 hover:text-pink-600 transition-colors">K-Pop Merch</Link></li>
+              <li><Link to="/category/home-decor" className="text-gray-800 hover:text-pink-600 transition-colors">Home Decor</Link></li>
             </ul>
           </nav>
           <form onSubmit={handleSearch} className="relative">
