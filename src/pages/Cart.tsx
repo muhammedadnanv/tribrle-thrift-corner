@@ -1,9 +1,10 @@
 import React from 'react';
 import { useCart } from '@/contexts/CartContext';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import CheckoutForm from '@/components/CheckoutForm';
 
 const Cart = () => {
   const { cart, removeFromCart } = useCart();
@@ -33,11 +34,16 @@ const Cart = () => {
             ))}
             <div className="mt-8">
               <p className="text-xl font-bold">Total: ₩{total.toFixed(2)}</p>
-              <Link to="/checkout">
-                <Button className="mt-4 bg-pink-500 text-white hover:bg-pink-600 transition-colors">
-                  Proceed to Checkout
-                </Button>
-              </Link>
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button className="mt-4 bg-pink-500 text-white hover:bg-pink-600 transition-colors">
+                    Proceed to Checkout
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px]">
+                  <CheckoutForm total={total} />
+                </DialogContent>
+              </Dialog>
             </div>
           </>
         )}
