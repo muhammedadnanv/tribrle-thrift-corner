@@ -3,13 +3,16 @@ import { useCart } from '@/contexts/CartContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { toast } from 'sonner';
-import { initiatePhonePePayment } from '@/utils/paymentUtils';
+import { initiateUPIPayment } from '@/utils/paymentUtils';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
   const { cart, clearCart } = useCart();
   const [address, setAddress] = useState('');
+  const [upiId, setUpiId] = useState('adnanmuhammad4393@okicici');
+  const navigate = useNavigate();
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
@@ -21,18 +24,21 @@ const Checkout = () => {
 
     try {
       const paymentDetails = {
-        amount: total * 100, // Amount in paise
+        amount: total,
+        upiId: upiId,
         transactionId: `ORDER-${Date.now()}`,
-        // Add other necessary fields
       };
 
-      const response = await initiatePhonePePayment(paymentDetails);
+      const response = await initiateUPIPayment(paymentDetails);
       console.log('Payment initiated:', response);
 
-      // Simulating successful payment
-      toast.success('Payment successful!');
-      clearCart();
-      // Redirect to a thank you page or order confirmation page
+      if (response.success) {
+        toast.success('Payment successful!');
+        clearCart();
+        navigate('/order-confirmation');
+      } else {
+        toast.error('Payment failed. Please try again.');
+      }
     } catch (error) {
       console.error('Payment failed:', error);
       toast.error('Payment failed. Please try again.');
@@ -69,8 +75,16 @@ const Checkout = () => {
               onChange={(e) => setAddress(e.target.value)}
               className="mb-4"
             />
+            <h2 className="text-xl font-semibold mb-4">UPI Payment</h2>
+            <Input
+              type="text"
+              placeholder="Enter UPI ID"
+              value={upiId}
+              onChange={(e) => setUpiId(e.target.value)}
+              className="mb-4"
+            />
             <Button onClick={handleCheckout} className="w-full bg-pink-500 text-white hover:bg-pink-600 transition-colors">
-              Pay with PhonePe
+              Pay with UPI
             </Button>
           </div>
         </div>

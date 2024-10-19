@@ -1,16 +1,16 @@
 import axios from 'axios';
 
-const PHONEPE_API_URL = 'https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay';
+const UPI_API_URL = 'https://api.example.com/upi-payment'; // Replace with actual UPI API endpoint
 
 interface PaymentDetails {
   amount: number;
+  upiId: string;
   transactionId: string;
-  // Add other necessary fields
 }
 
-export const initiatePhonePePayment = async (paymentDetails: PaymentDetails) => {
+export const initiateUPIPayment = async (paymentDetails: PaymentDetails) => {
   try {
-    // In a real-world scenario, you would make an actual API call to PhonePe
+    // In a real-world scenario, you would make an actual API call to the UPI payment gateway
     // For this example, we'll simulate a successful payment after a short delay
     await new Promise(resolve => setTimeout(resolve, 2000));
 
@@ -18,12 +18,11 @@ export const initiatePhonePePayment = async (paymentDetails: PaymentDetails) => 
     return {
       success: true,
       message: 'Payment initiated successfully',
-      paymentId: `PAY-${Date.now()}`,
-      // Add other fields that PhonePe would typically return
+      paymentId: `UPI-${Date.now()}`,
     };
 
     // In a real implementation, you would use axios like this:
-    // const response = await axios.post(PHONEPE_API_URL, paymentDetails, {
+    // const response = await axios.post(UPI_API_URL, paymentDetails, {
     //   headers: {
     //     'Content-Type': 'application/json',
     //     // Add any required authentication headers
@@ -31,7 +30,7 @@ export const initiatePhonePePayment = async (paymentDetails: PaymentDetails) => 
     // });
     // return response.data;
   } catch (error) {
-    console.error('Error initiating PhonePe payment:', error);
+    console.error('Error initiating UPI payment:', error);
     throw error;
   }
 };
