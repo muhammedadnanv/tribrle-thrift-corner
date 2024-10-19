@@ -1,6 +1,8 @@
 import React from 'react';
 import { Star, ShoppingCart, Heart } from 'lucide-react';
 import { Button } from './ui/button';
+import { useCart } from '../contexts/CartContext';
+import { toast } from 'sonner';
 
 interface Product {
   id: number;
@@ -12,6 +14,13 @@ interface Product {
 }
 
 const ProductCard = ({ product }: { product: Product }) => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    addToCart({ id: product.id, name: product.name, price: product.price, quantity: 1 });
+    toast.success(`${product.name} added to cart`);
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
       <img src={`https://picsum.photos/seed/${product.id}/300/400`} alt={product.name} className="w-full h-64 object-cover" />
@@ -33,7 +42,7 @@ const ProductCard = ({ product }: { product: Product }) => {
             <Button variant="ghost" size="icon" className="text-brown hover:text-brown-dark">
               <Heart className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" size="icon" className="text-brown hover:text-brown-dark">
+            <Button variant="ghost" size="icon" className="text-brown hover:text-brown-dark" onClick={handleAddToCart}>
               <ShoppingCart className="h-4 w-4" />
             </Button>
           </div>
