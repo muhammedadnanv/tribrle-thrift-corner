@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Star, ShoppingCart, Heart } from 'lucide-react';
 import { Button } from './ui/button';
 import { useCart } from '../contexts/CartContext';
@@ -15,10 +15,20 @@ interface Product {
 
 const ProductCard = ({ product }: { product: Product }) => {
   const { addToCart } = useCart();
+  const [isFavorite, setIsFavorite] = useState(false);
 
   const handleAddToCart = () => {
     addToCart({ id: product.id, name: product.name, price: product.price, quantity: 1 });
     toast.success(`${product.name} added to cart`);
+  };
+
+  const handleToggleFavorite = () => {
+    setIsFavorite(!isFavorite);
+    if (!isFavorite) {
+      toast.success(`${product.name} added to favorites`);
+    } else {
+      toast.info(`${product.name} removed from favorites`);
+    }
   };
 
   const formatPrice = (price: number) => {
@@ -44,8 +54,13 @@ const ProductCard = ({ product }: { product: Product }) => {
             View Details
           </Button>
           <div className="flex space-x-2">
-            <Button variant="ghost" size="icon" className="text-gray-600 hover:text-pink-600">
-              <Heart className="h-4 w-4" />
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className={`${isFavorite ? 'text-pink-600' : 'text-gray-600'} hover:text-pink-600`}
+              onClick={handleToggleFavorite}
+            >
+              <Heart className="h-4 w-4" fill={isFavorite ? 'currentColor' : 'none'} />
             </Button>
             <Button variant="ghost" size="icon" className="text-gray-600 hover:text-pink-600" onClick={handleAddToCart}>
               <ShoppingCart className="h-4 w-4" />
