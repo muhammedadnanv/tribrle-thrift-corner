@@ -21,12 +21,16 @@ const ProductCard = ({ product }: { product: Product }) => {
     toast.success(`${product.name} added to cart`);
   };
 
+  const formatPrice = (price: number) => {
+    return `₹${price.toLocaleString('en-IN')}`;
+  };
+
   return (
     <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
       <img src={`https://picsum.photos/seed/${product.id}/300/400`} alt={product.name} className="w-full h-64 object-cover" />
       <div className="p-4">
         <h3 className="text-lg font-semibold mb-2 text-gray-800">{product.name}</h3>
-        <p className="text-pink-600 font-bold mb-2">₩{product.price.toFixed(2)}</p>
+        <p className="text-pink-600 font-bold mb-2">{formatPrice(product.price)}</p>
         <div className="flex items-center mb-2">
           <Star className="h-4 w-4 text-yellow-400 fill-current mr-1" />
           <span className="text-sm text-gray-600">4.5 (10 reviews)</span>
