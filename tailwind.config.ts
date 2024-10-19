@@ -52,21 +52,21 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Custom colors
-        olive: {
-          light: '#8C9A82',
-          DEFAULT: '#5C6D4E',
-          dark: '#3C4A2E',
+        // Kerala-inspired colors
+        kerala: {
+          light: '#F3E5AB', // Light gold
+          DEFAULT: '#00A86B', // Kerala green
+          dark: '#8B4513', // Saddle brown
         },
-        beige: {
-          light: '#F5F0E6',
-          DEFAULT: '#E8DCC8',
-          dark: '#D1BFA0',
+        spice: {
+          light: '#FFA07A', // Light salmon
+          DEFAULT: '#D2691E', // Chocolate
+          dark: '#8B0000', // Dark red
         },
-        brown: {
-          light: '#A67C52',
-          DEFAULT: '#8C5E2A',
-          dark: '#6B4516',
+        coconut: {
+          light: '#FEFEFA', // Off-white
+          DEFAULT: '#DCDCDC', // Gainsboro
+          dark: '#A9A9A9', // Dark gray
         },
       },
       borderRadius: {
@@ -89,8 +89,8 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
-        serif: ['Playfair Display', 'serif'],
+        sans: ['Montserrat', 'sans-serif'],
+        serif: ['Rozha One', 'serif'],
       },
     },
   },

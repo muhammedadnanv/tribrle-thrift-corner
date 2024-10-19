@@ -22,27 +22,27 @@ const ProductCard = ({ product }: { product: Product }) => {
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
+    <div className="bg-coconut-light rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105">
       <img src={`https://picsum.photos/seed/${product.id}/300/400`} alt={product.name} className="w-full h-64 object-cover" />
       <div className="p-4">
-        <h3 className="text-lg font-semibold mb-2 text-brown-dark">{product.name}</h3>
-        <p className="text-olive font-bold mb-2">${product.price.toFixed(2)}</p>
+        <h3 className="text-lg font-semibold mb-2 text-kerala-dark">{product.name}</h3>
+        <p className="text-spice font-bold mb-2">₹{product.price.toFixed(2)}</p>
         <div className="flex items-center mb-2">
-          <Star className="h-4 w-4 text-yellow-400 mr-1" />
-          <span className="text-sm text-brown">4.5 (10 reviews)</span>
+          <Star className="h-4 w-4 text-kerala fill-current mr-1" />
+          <span className="text-sm text-spice-dark">4.5 (10 reviews)</span>
         </div>
-        <p className="text-sm text-brown-light mb-4">
+        <p className="text-sm text-spice-light mb-4">
           {product.category} • {product.condition} • Size {product.size}
         </p>
         <div className="flex justify-between items-center">
-          <Button variant="outline" size="sm" className="text-olive border-olive hover:bg-olive hover:text-white transition-colors">
+          <Button variant="outline" size="sm" className="text-kerala border-kerala hover:bg-kerala hover:text-coconut-light transition-colors">
             View Details
           </Button>
           <div className="flex space-x-2">
-            <Button variant="ghost" size="icon" className="text-brown hover:text-brown-dark">
+            <Button variant="ghost" size="icon" className="text-spice-dark hover:text-spice">
               <Heart className="h-4 w-4" />
             </Button>
-            <Button variant="ghost" size="icon" className="text-brown hover:text-brown-dark" onClick={handleAddToCart}>
+            <Button variant="ghost" size="icon" className="text-spice-dark hover:text-spice" onClick={handleAddToCart}>
               <ShoppingCart className="h-4 w-4" />
             </Button>
           </div>
