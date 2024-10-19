@@ -18,7 +18,7 @@ const Checkout = () => {
   const [country, setCountry] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
-  const [upiId, setUpiId] = useState('adnanmuhammad4393@okicici');
+  const upiId = 'adnanmuhammad4393@okicici'; // Changed to a constant
   const navigate = useNavigate();
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
@@ -135,10 +135,10 @@ const Checkout = () => {
               <h2 className="text-xl font-semibold mb-4">UPI Payment</h2>
               <Input
                 type="text"
-                placeholder="Enter UPI ID"
+                placeholder="UPI ID"
                 value={upiId}
-                onChange={(e) => setUpiId(e.target.value)}
-                className="mb-4"
+                readOnly
+                className="mb-4 bg-gray-100"
               />
               <Button onClick={handleCheckout} className="w-full bg-pink-500 text-white hover:bg-pink-600 transition-colors">
                 Pay with UPI
