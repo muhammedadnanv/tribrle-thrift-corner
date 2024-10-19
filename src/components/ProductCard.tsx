@@ -31,12 +31,13 @@ const ProductCard = ({ product }: { product: Product }) => {
       <div className="p-4">
         <h3 className="text-lg font-semibold mb-2 text-gray-800">{product.name}</h3>
         <p className="text-pink-600 font-bold mb-2">{formatPrice(product.price)}</p>
+        <p className="text-sm text-gray-600 mb-2">Condition: {product.condition}</p>
         <div className="flex items-center mb-2">
           <Star className="h-4 w-4 text-yellow-400 fill-current mr-1" />
           <span className="text-sm text-gray-600">4.5 (10 reviews)</span>
         </div>
         <p className="text-sm text-gray-500 mb-4">
-          {product.category} • {product.condition} • Size {product.size}
+          {product.category} • Size {product.size}
         </p>
         <div className="flex justify-between items-center">
           <Button variant="outline" size="sm" className="text-pink-600 border-pink-600 hover:bg-pink-600 hover:text-white transition-colors">
