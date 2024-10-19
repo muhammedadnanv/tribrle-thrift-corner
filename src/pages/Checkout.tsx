@@ -10,15 +10,22 @@ import { useNavigate } from 'react-router-dom';
 
 const Checkout = () => {
   const { cart, clearCart } = useCart();
-  const [address, setAddress] = useState('');
+  const [fullName, setFullName] = useState('');
+  const [streetAddress, setStreetAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [stateRegion, setStateRegion] = useState('');
+  const [zipCode, setZipCode] = useState('');
+  const [country, setCountry] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
   const [upiId, setUpiId] = useState('adnanmuhammad4393@okicici');
   const navigate = useNavigate();
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   const handleCheckout = async () => {
-    if (!address) {
-      toast.error('Please enter your address');
+    if (!fullName || !streetAddress || !city || !stateRegion || !zipCode || !country || !phoneNumber) {
+      toast.error('Please fill in all required fields');
       return;
     }
 
@@ -67,12 +74,61 @@ const Checkout = () => {
             </div>
           </div>
           <div>
-            <h2 className="text-xl font-semibold mb-4">Shipping Address</h2>
+            <h2 className="text-xl font-semibold mb-4">Shipping Information</h2>
             <Input
               type="text"
-              placeholder="Enter your address"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
+              placeholder="Full Name *"
+              value={fullName}
+              onChange={(e) => setFullName(e.target.value)}
+              className="mb-4"
+            />
+            <Input
+              type="text"
+              placeholder="Street Address *"
+              value={streetAddress}
+              onChange={(e) => setStreetAddress(e.target.value)}
+              className="mb-4"
+            />
+            <Input
+              type="text"
+              placeholder="City *"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              className="mb-4"
+            />
+            <Input
+              type="text"
+              placeholder="State/Province/Region *"
+              value={stateRegion}
+              onChange={(e) => setStateRegion(e.target.value)}
+              className="mb-4"
+            />
+            <Input
+              type="text"
+              placeholder="ZIP/Postal Code *"
+              value={zipCode}
+              onChange={(e) => setZipCode(e.target.value)}
+              className="mb-4"
+            />
+            <Input
+              type="text"
+              placeholder="Country *"
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
+              className="mb-4"
+            />
+            <Input
+              type="tel"
+              placeholder="Phone Number *"
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
+              className="mb-4"
+            />
+            <Input
+              type="email"
+              placeholder="Email Address (optional)"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="mb-4"
             />
             <div className="bg-pink-50 p-4 rounded-lg mb-4">
