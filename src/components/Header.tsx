@@ -16,7 +16,7 @@ const Header = () => {
     <header className="bg-white shadow-md">
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center mb-4">
-          <h1 className="text-3xl font-serif font-bold text-olive-dark">TribrleStrity Cder</h1>
+          <h1 className="text-3xl font-serif font-bold text-olive-dark">SecondChance Chic</h1>
           <div className="flex items-center space-x-4">
             <Button variant="ghost" size="icon" className="text-brown hover:text-brown-dark">
               <Heart className="h-5 w-5" />
