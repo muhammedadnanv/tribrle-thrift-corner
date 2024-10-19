@@ -52,22 +52,6 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Kerala-inspired colors
-        kerala: {
-          light: '#F3E5AB', // Light gold
-          DEFAULT: '#00A86B', // Kerala green
-          dark: '#8B4513', // Saddle brown
-        },
-        spice: {
-          light: '#FFA07A', // Light salmon
-          DEFAULT: '#D2691E', // Chocolate
-          dark: '#8B0000', // Dark red
-        },
-        coconut: {
-          light: '#FEFEFA', // Off-white
-          DEFAULT: '#DCDCDC', // Gainsboro
-          dark: '#A9A9A9', // Dark gray
-        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -89,8 +73,8 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
       },
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'],
-        serif: ['Rozha One', 'serif'],
+        sans: ['Noto Sans KR', 'sans-serif'],
+        serif: ['Nanum Myeongjo', 'serif'],
       },
     },
   },
