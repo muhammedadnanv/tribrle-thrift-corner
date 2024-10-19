@@ -52,6 +52,22 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Custom colors
+        olive: {
+          light: '#8C9A82',
+          DEFAULT: '#5C6D4E',
+          dark: '#3C4A2E',
+        },
+        beige: {
+          light: '#F5F0E6',
+          DEFAULT: '#E8DCC8',
+          dark: '#D1BFA0',
+        },
+        brown: {
+          light: '#A67C52',
+          DEFAULT: '#8C5E2A',
+          dark: '#6B4516',
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -71,6 +87,10 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        serif: ['Playfair Display', 'serif'],
       },
     },
   },
