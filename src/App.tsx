@@ -10,6 +10,7 @@ import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import OrderConfirmation from "./pages/OrderConfirmation";
 import KPopMerch from "./pages/KPopMerch";
+import Legal from "./pages/Legal";
 
 const queryClient = new QueryClient();
 
@@ -27,6 +28,7 @@ const App = () => (
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/order-confirmation" element={<OrderConfirmation />} />
             <Route path="/category/k-pop-merch" element={<KPopMerch />} />
+            <Route path="/legal" element={<Legal />} />
           </Routes>
         </BrowserRouter>
       </CartProvider>
