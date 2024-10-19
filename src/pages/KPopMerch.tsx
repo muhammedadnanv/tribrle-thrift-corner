@@ -13,7 +13,14 @@ const fetchKPopMerch = async () => {
     { id: 2, name: 'BLACKPINK Light Stick', price: 39.99, category: 'Accessories', condition: 'New', size: 'N/A' },
     { id: 3, name: 'EXO T-Shirt', price: 29.99, category: 'Clothing', condition: 'New', size: 'M' },
     { id: 4, name: 'TWICE Photobook', price: 34.99, category: 'Books', condition: 'New', size: 'N/A' },
-    // Add more K-Pop merch items as needed
+    { id: 5, name: 'Red Velvet Perfume Set', price: 79.99, category: 'Beauty', condition: 'New', size: 'N/A' },
+    { id: 6, name: 'NCT Handmade Soap Collection', price: 24.99, category: 'Beauty', condition: 'New', size: 'N/A' },
+    { id: 7, name: 'SEVENTEEN Birthday Cake', price: 49.99, category: 'Food', condition: 'New', size: 'N/A' },
+    { id: 8, name: 'ITZY Lip Balm Set', price: 19.99, category: 'Beauty', condition: 'New', size: 'N/A' },
+    { id: 9, name: 'Stray Kids Chocolate Box', price: 29.99, category: 'Food', condition: 'New', size: 'N/A' },
+    { id: 10, name: 'MAMAMOO Scented Candle', price: 34.99, category: 'Home', condition: 'New', size: 'N/A' },
+    { id: 11, name: 'GOT7 Body Mist', price: 22.99, category: 'Beauty', condition: 'New', size: 'N/A' },
+    { id: 12, name: 'ATEEZ Cookie Set', price: 15.99, category: 'Food', condition: 'New', size: 'N/A' },
   ];
 };
 
