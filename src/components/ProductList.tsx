@@ -7,10 +7,14 @@ const fetchProducts = async () => {
   // Simulating API call
   await new Promise(resolve => setTimeout(resolve, 1000));
   return [
-    { id: 1, name: 'Vintage Denim Jacket', price: 39.99, category: 'Men', condition: 'Good', size: 'M' },
-    { id: 2, name: 'Floral Summer Dress', price: 24.99, category: 'Women', condition: 'Excellent', size: 'S' },
-    { id: 3, name: 'Kids Superhero T-Shirt', price: 14.99, category: 'Kids', condition: 'New', size: '6-7Y' },
-    { id: 4, name: 'Leather Handbag', price: 54.99, category: 'Accessories', condition: 'Very Good', size: 'One Size' },
+    { id: 1, name: 'Korean Style Dress', price: 59.99, category: 'Women', condition: 'New', size: 'M' },
+    { id: 2, name: 'K-Pop Inspired T-Shirt', price: 29.99, category: 'Unisex', condition: 'New', size: 'L' },
+    { id: 3, name: 'Traditional Hanbok', price: 199.99, category: 'Women', condition: 'New', size: 'One Size' },
+    { id: 4, name: 'Korean Skincare Set', price: 89.99, category: 'Beauty', condition: 'New', size: 'N/A' },
+    { id: 5, name: 'K-Drama Inspired Jacket', price: 79.99, category: 'Men', condition: 'New', size: 'XL' },
+    { id: 6, name: 'Korean Street Food Cookbook', price: 24.99, category: 'Books', condition: 'New', size: 'N/A' },
+    { id: 7, name: 'BTS Album Collection', price: 149.99, category: 'Music', condition: 'New', size: 'N/A' },
+    { id: 8, name: 'Korean Beauty Face Masks', price: 19.99, category: 'Beauty', condition: 'New', size: 'N/A' },
   ];
 };
 
